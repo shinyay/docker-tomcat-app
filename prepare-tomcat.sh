@@ -27,6 +27,6 @@ chmod +x apache-tomcat-${TOMCAT10}/bin/*.sh
 chmod +x apache-tomcat-${TOMCAT9}/bin/*.sh
 chmod +x apache-tomcat-${TOMCAT8}/bin/*.sh
 
-docker build -t tomcat-app:10 -f Dockerfile.tomcat10 .
-docker build -t tomcat-app:9 -f Dockerfile.tomcat9 .
-docker build -t tomcat-app:8 -f Dockerfile.tomcat8 .
+# docker build -t tomcat-app:10 -f Dockerfile.tomcat10 .
+# docker build -t tomcat-app:9 -f Dockerfile.tomcat9 .
+# docker build -t tomcat-app:8 -f Dockerfile.tomcat8 .
