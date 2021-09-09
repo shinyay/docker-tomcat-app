@@ -8,6 +8,12 @@ TOMCAT8=8.5.70
 
 function usage() {
     echo "Usage: $PROGNAME [OPTIONS]"
+    echo "  This script is creating a sample Tomcat environment."
+    echo ""
+    echo "Options:"
+    echo "  -h, --help             Display Help"
+    echo "  -v, --version VERSION  Tomcat target version"
+    echo "  -c, --clean            Cleanup Tomcat environment"
 }
 
 
@@ -47,8 +53,12 @@ function tomcat10() {
 }
 
 function cleanup() {
-  rm -fr apache-tomcat-*
-  rm sample.war
+  if [ -e apache-tomcat-* ]; then
+    rm -fr apache-tomcat-*
+  fi
+  if [ -e sample.war ]; then
+    rm sample.war
+  fi
 }
 
 for OPT in "$@"
@@ -78,12 +88,12 @@ do
             tomcat10
             # docker build -t tomcat-app:10 -f Dockerfile.tomcat10 .
             ;;
-          clean)
-            cleanup
-            ;;
         esac
-      fi
-      
+      fi      
+      ;;
+    -c | --clean)
+      cleanup
+      exit 1
       ;;
   esac
 done
