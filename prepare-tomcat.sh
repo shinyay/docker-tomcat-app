@@ -53,12 +53,11 @@ function tomcat10() {
 }
 
 function cleanup() {
-  if [ -e apache-tomcat-* ]; then
-    rm -fr apache-tomcat-*
-  fi
+  rm -fr apache-tomcat-*
   if [ -e sample.war ]; then
     rm sample.war
   fi
+  docker rmi tomcat-app:8 tomcat-app:9 tomcat-app:10
 }
 
 for OPT in "$@"
@@ -76,17 +75,17 @@ do
           8)
             TOMCAT=$TOMCAT8
             tomcat8
-            # docker build -t tomcat-app:8 -f Dockerfile.tomcat8 .
+            docker build -t tomcat-app:8 --build-arg version=$TOMCAT .
             ;;
           9)
             TOMCAT=$TOMCAT9
             tomcat9
-            # docker build -t tomcat-app:9 -f Dockerfile.tomcat9 .
+            docker build -t tomcat-app:9 --build-arg version=$TOMCAT .
             ;;
           10)
             TOMCAT=$TOMCAT10
             tomcat10
-            # docker build -t tomcat-app:10 -f Dockerfile.tomcat10 .
+            docker build -t tomcat-app:10 --build-arg version=$TOMCAT .
             ;;
         esac
       fi      
