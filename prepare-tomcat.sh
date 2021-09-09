@@ -66,14 +66,17 @@ do
           8)
             TOMCAT=$TOMCAT8
             tomcat8
+            # docker build -t tomcat-app:8 -f Dockerfile.tomcat8 .
             ;;
           9)
             TOMCAT=$TOMCAT9
             tomcat9
+            # docker build -t tomcat-app:9 -f Dockerfile.tomcat9 .
             ;;
           10)
             TOMCAT=$TOMCAT10
             tomcat10
+            # docker build -t tomcat-app:10 -f Dockerfile.tomcat10 .
             ;;
           clean)
             cleanup
@@ -84,7 +87,3 @@ do
       ;;
   esac
 done
-
-# docker build -t tomcat-app:10 -f Dockerfile.tomcat10 .
-# docker build -t tomcat-app:9 -f Dockerfile.tomcat9 .
-# docker build -t tomcat-app:8 -f Dockerfile.tomcat8 .
