@@ -14,7 +14,15 @@ Overview
 ## Requirement
 
 ## Usage
+```
+Usage: prepare-tomcat.sh [OPTIONS]
+  This script is creating a sample Tomcat environment.
 
+Options:
+  -h, --help             Display Help
+  -v, --version VERSION  Tomcat target version
+  -c, --clean            Cleanup Tomcat environment
+```
 ## Installation
 
 ## References
